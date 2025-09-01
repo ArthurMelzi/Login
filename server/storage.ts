@@ -84,11 +84,17 @@ export class MemStorage implements IStorage {
 
   async deleteExpiredSessions(): Promise<void> {
     const now = new Date();
-    for (const [id, session] of this.sessions.entries()) {
+    const sessionsToDelete: string[] = [];
+    
+    this.sessions.forEach((session, id) => {
       if (session.expiresAt <= now) {
-        this.sessions.delete(id);
+        sessionsToDelete.push(id);
       }
-    }
+    });
+    
+    sessionsToDelete.forEach(id => {
+      this.sessions.delete(id);
+    });
   }
 }
 

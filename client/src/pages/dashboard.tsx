@@ -75,10 +75,10 @@ export default function Dashboard() {
           <div className="text-center space-y-2">
             <p className="text-sm text-muted-foreground">Usuário logado:</p>
             <p className="font-semibold text-lg" data-testid="text-username">
-              {user.user?.username}
+              {(user as any)?.user?.username}
             </p>
             <p className="text-xs text-muted-foreground" data-testid="text-created-at">
-              Membro desde: {user.user?.createdAt ? new Date(user.user.createdAt).toLocaleDateString('pt-BR') : 'N/A'}
+              Membro desde: {(user as any)?.user?.createdAt ? new Date((user as any).user.createdAt).toLocaleDateString('pt-BR') : 'N/A'}
             </p>
           </div>
 

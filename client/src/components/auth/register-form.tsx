@@ -95,7 +95,7 @@ export function RegisterForm({ onSuccess }: RegisterFormProps) {
           type="password"
           label="Confirmar senha"
           error={form.formState.errors.confirmPassword?.message}
-          success={confirmPassword && password === confirmPassword && !form.formState.errors.confirmPassword}
+          success={!!(confirmPassword && password === confirmPassword && !form.formState.errors.confirmPassword)}
           data-testid="input-confirm-password"
         />
 
