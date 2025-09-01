@@ -48,7 +48,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Register endpoint
   app.post('/api/auth/register', async (req, res) => {
     try {
-      console.log('Received data:', req.body);
       const validatedData = insertUserSchema.parse(req.body);
       
       // Check if user already exists
