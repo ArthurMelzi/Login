@@ -4,6 +4,7 @@ import { RegisterForm } from "./register-form";
 import { SuccessModal } from "./success-modal";
 import { Card } from "@/components/ui/card";
 import { useLocation } from "wouter";
+import { Shield, LogIn, UserPlus } from "lucide-react";
 
 export function AuthForm() {
   const [activeTab, setActiveTab] = useState<"login" | "register">("login");
@@ -34,7 +35,7 @@ export function AuthForm() {
           {/* Header */}
           <div className="bg-gradient-to-r from-primary to-primary/90 p-6 text-center">
             <div className="w-16 h-16 bg-primary-foreground/20 rounded-full flex items-center justify-center mx-auto mb-4">
-              <i className="fas fa-shield-alt text-2xl text-primary-foreground" data-testid="icon-shield"></i>
+              <Shield className="w-8 h-8 text-primary-foreground" data-testid="icon-shield" />
             </div>
             <h1 className="text-2xl font-bold text-primary-foreground" data-testid="text-title">
               Sistema Seguro
@@ -55,7 +56,7 @@ export function AuthForm() {
               }`}
               data-testid="tab-login"
             >
-              <i className="fas fa-sign-in-alt mr-2"></i>Entrar
+<LogIn className="w-4 h-4 mr-2" />Entrar
             </button>
             <button
               onClick={() => setActiveTab("register")}
@@ -66,7 +67,7 @@ export function AuthForm() {
               }`}
               data-testid="tab-register"
             >
-              <i className="fas fa-user-plus mr-2"></i>Cadastrar
+<UserPlus className="w-4 h-4 mr-2" />Cadastrar
             </button>
           </div>
 
@@ -82,7 +83,7 @@ export function AuthForm() {
           {/* Footer */}
           <div className="bg-muted/30 px-6 py-4 text-center border-t border-border">
             <p className="text-xs text-muted-foreground" data-testid="text-security">
-              <i className="fas fa-shield-alt mr-1"></i>
+<Shield className="w-3 h-3 mr-1 inline" />
               Seus dados são protegidos com criptografia de ponta
             </p>
           </div>

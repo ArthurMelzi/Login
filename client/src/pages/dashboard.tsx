@@ -6,6 +6,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "wouter";
 import { Skeleton } from "@/components/ui/skeleton";
+import { User, LogOut, Shield } from "lucide-react";
 
 export default function Dashboard() {
   const [, setLocation] = useLocation();
@@ -65,7 +66,7 @@ export default function Dashboard() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i className="fas fa-user text-2xl text-primary" data-testid="icon-user"></i>
+            <User className="w-8 h-8 text-primary" data-testid="icon-user" />
           </div>
           <CardTitle className="text-2xl font-bold" data-testid="text-welcome">
             Bem-vindo!
@@ -90,14 +91,14 @@ export default function Dashboard() {
               disabled={logoutMutation.isPending}
               data-testid="button-logout"
             >
-              <i className="fas fa-sign-out-alt mr-2"></i>
+<LogOut className="w-4 h-4 mr-2" />
               {logoutMutation.isPending ? "Saindo..." : "Sair"}
             </Button>
           </div>
 
           <div className="text-center">
             <p className="text-xs text-muted-foreground" data-testid="text-security-footer">
-              <i className="fas fa-shield-alt mr-1"></i>
+<Shield className="w-3 h-3 mr-1 inline" />
               Sua sessão está protegida
             </p>
           </div>
