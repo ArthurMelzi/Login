@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import session from "express-session";
 import { storage } from "./storage";
-import { loginSchema, registerSchema } from "@shared/schema";
+import { loginSchema, registerSchema, insertUserSchema } from "@shared/schema";
 import { ZodError } from "zod";
 
 declare module "express-session" {
@@ -48,7 +48,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Register endpoint
   app.post('/api/auth/register', async (req, res) => {
     try {
-      const validatedData = registerSchema.parse(req.body);
+      console.log('Received data:', req.body);
+      const validatedData = insertUserSchema.parse(req.body);
       
       // Check if user already exists
       const existingUser = await storage.getUserByUsername(validatedData.username);
